@@ -6,8 +6,12 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/',
         { templateUrl: 'views/home.html' }
     ).when('/rentals', {
-        templateUrl: 'views/rentals.html'
+        templateUrl: 'views/rentals.html',
+        controller: 'RentalsController',
+        controllerAs: 'vm'
     }).when('/listings', {
-        templateUrl: 'views/listings.html'
+        templateUrl: 'views/listings.html',
+        controller: 'ListingsController',
+        controllerAs: 'vm'
     })
 }])
