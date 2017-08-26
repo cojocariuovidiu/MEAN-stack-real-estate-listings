@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+
+        <title>Weekend Challenge 5</title>
+        <script src="/vendors/angular.min.js"></script>
+        <script src="vendors/angular-route.js"></script>
+        <script src="client.js"></script>
+
+    </head>
+    <body ng-app="realEstateApp">
+        
+<h1>Real Estate Listings</h1>                 
+
+<ul>
+    <li><a href="#!rentals">For Rent</a></li>
+    <li><a href="#!listings">For Sale</a></li>
+</ul>
+
+<ng-view></ng-view>
+
+    </body>
+</html>
