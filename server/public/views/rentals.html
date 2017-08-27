@@ -1,3 +1,16 @@
-<h1>Rentals</h1>
+<h1>Rentals:</h1>
 
-{{vm.rental}}
+<table class="table">
+        <tr>
+            <th>Rent </th>
+            <th>Square Feet</th>
+            <th>City</th>
+        </tr>
+        <tbody>
+            <tr ng-repeat="rental in vm.rentals">
+                <td>{{rental.rent | currency}}</td>
+                <td>{{rental.sqft | number}}</td>
+                <td>{{rental.city}}</td>
+            </tr>
+        </tbody>
+    </table>

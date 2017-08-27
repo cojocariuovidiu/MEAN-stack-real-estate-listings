@@ -1,4 +1,13 @@
-app.controller('RentalsController', [function(){
+app.controller('RentalsController', ['RealEstateService', function(RealEstateService){
+    console.log('rentalsController loaded');
     var self = this;
-    self.rental = "This is something for rent!";
+    self.rentals = RealEstateService.rentals;
+    getRentalsFromService();
+
+
+    function getRentalsFromService (){
+        RealEstateService.getRentals();
+        console.log('rentals!', self.rentals)
+    };
+
 }]);

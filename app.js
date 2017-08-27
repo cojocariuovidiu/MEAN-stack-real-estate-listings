@@ -2,9 +2,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 //var path = require('path');
-// var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 var port = 5000;
-//var person = require('./routes/person.js');
+
 
 
 var listings = require('./server/routes/listings');
@@ -19,19 +19,19 @@ app.use(bodyParser.json()); // needed for angular requests
 
 app.use('/listings', listings);
 app.use('/rentals', rentals);
-//app.use('/person', person);
+
 
 /** ---------- MONGOOSE CONNECTION ---------- **/
 
-// var databaseUrl = 'mongodb://localhost:27017/betelgeuse';
-// mongoose.connect(databaseUrl, 
-// {
-//     useMongoClient: true
-// });
+var databaseUrl = 'mongodb://localhost:27017/realestate';
+mongoose.connect(databaseUrl, 
+{
+    useMongoClient: true
+});
 
-// mongoose.connection.on('connected', function(){
-//     console.log('mongoose connected to: ', databaseUrl);
-// });
+mongoose.connection.on('connected', function(){
+    console.log('mongoose connected to: ', databaseUrl);
+});
 
 /** ---------- START SERVER ---------- **/
 ;

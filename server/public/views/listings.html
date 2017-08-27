@@ -1,3 +1,16 @@
-<h1>Listings</h1>
+<h1>Listings:</h1>
 
-{{vm.listing}}
+<table class="table">
+    <tr>
+        <th>Cost </th>
+        <th>Square Feet</th>
+        <th>City</th>
+    </tr>
+    <tbody>
+        <tr ng-repeat="listing in vm.listings">
+            <td>{{listing.cost | currency}}</td>
+            <td>{{listing.sqft | number}}</td>
+            <td>{{listing.city}}</td>
+        </tr>
+    </tbody>
+</table>
