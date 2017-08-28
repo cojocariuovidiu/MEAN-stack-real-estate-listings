@@ -5,7 +5,7 @@
         <input type="number" name="sqft" ng-model="vm.newRental.sqft">
         <label>City</label>
         <input type='text' name="city" ng-model="vm.newRental.city">
-        <button>Add Rental</button>
+        <button ng-click="vm.addRentalFromService(vm.newRental)">Add Rental</button>
     </form>
 
 <h3>Rentals:</h3>

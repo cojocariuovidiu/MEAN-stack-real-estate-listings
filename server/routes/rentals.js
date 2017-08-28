@@ -15,4 +15,18 @@ router.get('/', function (req, res) {
     });
 });
 
+router.post('/', function(req, res){ 
+    console.log('new rental: ', req.body); 
+    var addRental = new Rentals(req.body);
+    addRental.save(function(err, data){
+        console.log('saved to rentals', data);
+        if(err) {
+            console.log('save error: ', err);
+            res.sendStatus(500);
+        } else {
+            res.sendStatus(201)
+        };
+    });
+});
+
 module.exports = router;

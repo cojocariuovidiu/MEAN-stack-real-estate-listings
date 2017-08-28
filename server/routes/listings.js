@@ -25,8 +25,8 @@ router.post('/', function(req, res){
             res.sendStatus(500);
         } else {
             res.sendStatus(201)
-        }
-    })
+        };
+    });
 });
 
 module.exports = router;

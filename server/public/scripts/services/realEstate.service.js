@@ -42,6 +42,17 @@ app.service('RealEstateService', ['$http', function($http){
         });
     };
 
+    self.addRental = function(newRental){
+        return $http({
+            method: 'POST',
+            url: '/rentals',
+            data: newRental
+        }).then(function (response) {
+            console.log('service post response: ', response.data); 
+            self.getRentals();
+        });       
+    };
+
 // short form GET
 // self.getRentals = function(){
 //     $http.get('/rentals').then(function (response) {
@@ -49,5 +60,11 @@ app.service('RealEstateService', ['$http', function($http){
 //     })
 // }
 
+// self.addRental = function(newRental) {
+//     console.log('sending this object to server', newRental);
+//     $http.post('/rentals', newRental).then(function(response) {
+//         console.log('service post response: ', response);
+//         self.getRental();
+//     });
 
 }]);

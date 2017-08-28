@@ -10,4 +10,8 @@ app.controller('RentalsController', ['RealEstateService', function(RealEstateSer
         console.log('rentals!', self.rentals)
     };
 
+    self.addRentalFromService = function(newRental){
+        RealEstateService.addRental(newRental);
+    };
+
 }]);
