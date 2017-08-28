@@ -2,19 +2,21 @@ app.service('RealEstateService', ['$http', function($http){
     console.log('service loaded');
 
     var self = this;
-    self.listings = [];
+    self.listings = {
+        list: []
+    };
     
     self.rentals = {
         list: []
     };
 
-    //alternative GET call that works with just an empty array
+    //alternative GET call 
     self.getListings = function(){
         return $http({
             method: 'GET',
             url: '/listings',
         }).then(function (response) {
-            return self.listings = response.data;
+            return self.listings.list = response.data;
         });
     };
 

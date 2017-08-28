@@ -17,7 +17,7 @@
         <th>City</th>
     </tr>
     <tbody>
-        <tr ng-repeat="listing in vm.listings">
+        <tr ng-repeat="listing in vm.listings.list">
             <td>{{listing.cost | currency}}</td>
             <td>{{listing.sqft | number}}</td>
             <td>{{listing.city}}</td>
