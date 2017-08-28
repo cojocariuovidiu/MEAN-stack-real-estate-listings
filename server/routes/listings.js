@@ -15,4 +15,18 @@ router.get('/', function (req, res) {
     });
 });
 
+router.post('/', function(req, res){ 
+    console.log('new listing: ', req.body); 
+    var addListing = new listings(req.body);
+    addListing.save(function(err, data){
+        console.log('saved to listings', data);
+        if(err) {
+            console.log('save error: ', err);
+            res.sendStatus(500);
+        } else {
+            res.sendStatus(201)
+        }
+    })
+});
+
 module.exports = router;

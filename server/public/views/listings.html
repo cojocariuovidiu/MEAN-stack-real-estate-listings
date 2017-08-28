@@ -1,4 +1,14 @@
-<h1>Listings:</h1>
+<form>
+    <label>Cost</label>
+    <input type="number" name="cost" ng-model="vm.newListing.cost">
+    <label>Sqft</label>
+    <input type="number" name="sqft" ng-model="vm.newListing.sqft">
+    <label>City</label>
+    <input type='text' name="city" ng-model="vm.newListing.city">
+    <button ng-click="vm.addListingFromService(vm.newListing)">Add Listing</button>
+</form>
+
+<h3>Listings:</h3>
 
 <table class="table">
     <tr>

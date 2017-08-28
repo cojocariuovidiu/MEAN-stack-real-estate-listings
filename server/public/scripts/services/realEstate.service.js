@@ -3,8 +3,12 @@ app.service('RealEstateService', ['$http', function($http){
 
     var self = this;
     self.listings = [];
-    self.rentals = [];
+    
+    self.rentals = {
+        list: []
+    };
 
+    //alternative GET call that works with just an empty array
     self.getListings = function(){
         return $http({
             method: 'GET',
@@ -14,6 +18,19 @@ app.service('RealEstateService', ['$http', function($http){
         });
     };
 
+    self.addListing = function(newListing){
+        return $http({
+            method: 'POST',
+            url: '/listings',
+            data: newListing
+        }).then(function (response) {
+            console.log('service post response: ', response.data); 
+            self.getListings();
+        });       
+    };
+
+
+    //long form GET
     self.getRentals = function(){
         $http({
             method: 'GET',
@@ -21,7 +38,16 @@ app.service('RealEstateService', ['$http', function($http){
         }).then(function (response) {
             console.log(response);
             console.log(response.data);
-            self.rentals = response.data;
+            self.rentals.list = response.data;
         });
     };
+
+// short form GET
+// self.getRentals = function(){
+//     $http.get('/rentals').then(function (response) {
+//         self.rentals.list = response.data;
+//     })
+// }
+
+
 }]);

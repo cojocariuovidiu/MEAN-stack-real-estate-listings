@@ -1,4 +1,14 @@
-<h1>Rentals:</h1>
+<form>
+        <label>Rent</label>
+        <input type="number" name="rent" ng-model="vm.newRental.rent">
+        <label>Sqft</label>
+        <input type="number" name="sqft" ng-model="vm.newRental.sqft">
+        <label>City</label>
+        <input type='text' name="city" ng-model="vm.newRental.city">
+        <button>Add Rental</button>
+    </form>
+
+<h3>Rentals:</h3>
 
 <table class="table">
         <tr>
@@ -7,7 +17,7 @@
             <th>City</th>
         </tr>
         <tbody>
-            <tr ng-repeat="rental in vm.rentals">
+            <tr ng-repeat="rental in vm.rentals.list">
                 <td>{{rental.rent | currency}}</td>
                 <td>{{rental.sqft | number}}</td>
                 <td>{{rental.city}}</td>
